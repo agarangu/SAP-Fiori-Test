@@ -1,6 +1,17 @@
 <mvc:View controllerName="org.bootcamp.sapfioritest.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
+        <l:VerticalLayout class="sapUiContentPadding" width="100%">
+            <Label text="Name" labelFor="inputText" />
+            <Input
+                id="inputText"
+                placeholder="Enter your name"
+                class="sapUiSmallMarginBottom" 
+                value="{/InputValue}"/>
+            <!-- <Text text="{/InputValue}"/> -->
+            <Button text="Press me" press="showMessage"></Button>
+        </l:VerticalLayout>
     </Page>
 </mvc:View>
