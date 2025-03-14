@@ -9,14 +9,13 @@ sap.ui.define([
         onInit() {
             const oModel = new JSONModel({"InputValue": ""});
             this.getView().setModel(oModel, "UserInput");
-            const oModel2 = new JSONModel({"HelloWorld": true, "Products": true});
+            const oModel2 = new JSONModel({"HelloWorld": false, "Products": true});
             this.getView().setModel(oModel2, "Display");
         },
-        showMessage: function () {
-            var message = this.getView().getModel("i18n").getResourceBundle().getText("message");
+        showMessage: function () {            
             var name = this.getView().getModel("UserInput").getProperty("/InputValue");
-            if(name) message +=name;
-            else message += "world";
+            if(!name) name = "world";
+            var message = this.getView().getModel("i18n").getResourceBundle().getText("message", [name]);
             MessageBox.information(message);
         }
     });
