@@ -8,11 +8,13 @@ sap.ui.define([
     return Controller.extend("org.bootcamp.sapfioritest.controller.Home", {
         onInit() {
             const oModel = new JSONModel({"InputValue": ""});
-            this.getView().setModel(oModel);
+            this.getView().setModel(oModel, "UserInput");
+            const oModel2 = new JSONModel({"HelloWorld": true, "Products": true});
+            this.getView().setModel(oModel2, "Display");
         },
         showMessage: function () {
             var message = this.getView().getModel("i18n").getResourceBundle().getText("message");
-            var name = this.getView().getModel().getProperty("/InputValue");
+            var name = this.getView().getModel("UserInput").getProperty("/InputValue");
             if(name) message +=name;
             else message += "world";
             MessageBox.information(message);

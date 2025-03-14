@@ -3,15 +3,17 @@
     xmlns="sap.m"
     xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
-        <l:VerticalLayout class="sapUiContentPadding" width="100%">
-            <Label text="Name" labelFor="inputText" />
+        <l:VerticalLayout visible="{Display>/HelloWorld}" class="sapUiContentPadding" width="100%">
+            <Label text="{i18n>name}" labelFor="inputText" />
             <Input
                 id="inputText"
                 placeholder="Enter your name"
                 class="sapUiSmallMarginBottom" 
-                value="{/InputValue}"/>
-            <!-- <Text text="{/InputValue}"/> -->
-            <Button text="Press me" press="showMessage"></Button>
+                value="{UserInput>/InputValue}"/>
+            <Button text="{i18n>button}" press="showMessage"></Button>
+        </l:VerticalLayout>
+        <l:VerticalLayout visible="{Display>/Products}" class="sapUiContentPadding" width="100%">
+            <Button text="{i18n>button2}" press="getData"></Button>
         </l:VerticalLayout>
     </Page>
 </mvc:View>
